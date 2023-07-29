@@ -1,8 +1,5 @@
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-
-import java.util.HashMap;
-
 import static io.restassured.RestAssured.given;
 
 public class OrderAPI {

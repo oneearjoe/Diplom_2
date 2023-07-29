@@ -3,8 +3,6 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
@@ -25,7 +23,6 @@ public class UpdateUserInfoTest {
     @Test
     @DisplayName("Изменение информации пользователя")
     public void checkItIsAbleToEditUserInfo(){
-
         user.setName("AAAA");
         user.setEmail("edit_" + user.getEmail());
         response = userMethods.updateUserInfo(accessToken, user);
@@ -50,5 +47,4 @@ public class UpdateUserInfoTest {
     public void tearDown(){
         userMethods.deleteUser(accessToken);
     }
-
 }

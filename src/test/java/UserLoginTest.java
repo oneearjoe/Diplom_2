@@ -23,8 +23,6 @@ public class UserLoginTest {
     @Test
     @DisplayName("Проверка авторизации пользователя")
     public void loginUserSuccessTest() {
-        response = userMethods.login(user);
-        accessToken = response.extract().path("accessToken");
         response.assertThat().statusCode(200);
         response.assertThat().body("success", is(true));
         response.assertThat().body("refreshToken", notNullValue());
@@ -36,9 +34,6 @@ public class UserLoginTest {
     @Test
     @DisplayName("Авторизация без email невозможна")
     public void checkErrorMessageIfEmailIsEmptyDuringLogin(){
-//        user = User.getRandomUser();
-//        response = userMethods.registerUser(user);
-//        accessToken = response.extract().path("accessToken");
         user.setEmail(null);
         response = userMethods.login(user);
         response.assertThat().statusCode(401);
@@ -49,9 +44,6 @@ public class UserLoginTest {
     @Test
     @DisplayName("Авторизация без password невозможна")
     public void checkErrorMessageIfPasswordIsEmptyDuringLogin(){
-//        user = User.getRandomUser();
-//        response = userMethods.registerUser(user);
-//        accessToken = response.extract().path("accessToken");
         user.setPassword(null);
         response = userMethods.login(user);
         response.assertThat().statusCode(401);

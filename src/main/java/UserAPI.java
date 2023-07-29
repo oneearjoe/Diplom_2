@@ -6,7 +6,6 @@ import static io.restassured.RestAssured.given;
 public class UserAPI {
 
     private static final String REGISTER = "/api/auth/register";
-
     private static final String AUTH_USER = "api/auth/user";
     private static final String LOGIN = "api/auth/login";
 
